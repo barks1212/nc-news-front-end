@@ -1,0 +1,51 @@
+
+
+.articlesSection {
+  background-color: yellow;
+  position: relative;
+  padding: 5vh;
+  margin-right: 3vh;
+  margin-left: 5vh;
+  max-height: 90%;
+  overflow: hidden;
+}
+
+
+.cardBody{
+  width: 90%;
+  border: 1px solid black;
+}
+
+.card-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.articlesHolder{
+  padding: 0vw .6vw;
+  margin-top: 1vw;
+}
+
+.voteCount{
+  display: flex;
+  flex-direction: column;
+  color: red;
+
+  width: 7vh;
+  align-items: center;
+  justify-content: center;
+  margin-right: 3vh;
+}
+
+.upArrow{
+  background-color: white;
+  color: red;
+  cursor: pointer;
+}
+
+
+.downArrow{
+  background-color: white;
+  color: red;
+  cursor: pointer;
+}

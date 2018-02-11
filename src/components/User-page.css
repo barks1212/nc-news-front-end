@@ -1,0 +1,58 @@
+#userMain {
+  height: 100%;
+}
+
+#userTop{
+  height: 27%;
+}
+
+
+img {
+  color: transparent;
+}
+
+#userPageHero {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.profileImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.profileImage{
+  display: flex;
+  justify-content: center;
+}
+
+#userBody {
+  height: 75%;
+}
+
+#userButtons {
+  margin-top: 1%;
+}
+
+#articles {
+  margin-left: 15%;
+}
+
+
+#articles:hover{
+  background-color: transparent;
+}
+
+#comments {
+margin-right: 15%;
+}
+
+#comments:hover{
+  background-color: transparent;
+}

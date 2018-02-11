@@ -1,0 +1,62 @@
+body{
+  background-color: hsl(0, 0%, 21%);
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+.bodyContent{
+  overflow: hidden;
+  height: 96.1%;
+}
+
+.main{
+  height: 97vh;
+  overflow: hidden;
+}
+
+.defaultPadding{
+  padding: 1vw .5vw;
+}
+
+.verticalHalf{
+  height: 50%
+}
+
+.noTBPadding{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* .customScroll{
+  overflow-y: scroll;
+}
+
+ .customScroll::-webkit-scrollbar {
+  width: .6vw;
+}
+
+.customScroll::-webkit-scrollbar-thumb {
+  border-radius: 0em;
+  background-color: hsl(348, 100%, 61%);
+}  */
+
+
+.isWhite{
+  background-color: hsl(0, 0%, 100%);
+}
+.isDark{
+  background-color: hsl(0, 0%, 21%);
+}
+.isDanger{
+  background-color: hsl(348, 100%, 61%);
+}
+
+.isHover{
+  cursor: pointer;
+}
+
+.isHover:hover{
+  box-shadow: none !important;
+}

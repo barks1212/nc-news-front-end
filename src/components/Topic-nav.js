@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PT from 'prop-types';
 
 const TopicsNav = (props) => {
   return (
@@ -24,10 +25,13 @@ const TopicsNav = (props) => {
       <span className="buttonFooter is-size-7">Cooking</span>
       </a>
       </Link>
-      
     </section>
   )
-
 }
+
+TopicsNav.propTypes = {
+  topics: PT.array.isRequired
+};
+
 
 export default TopicsNav;
