@@ -46,7 +46,8 @@ class Articles extends React.Component {
                     <strong><Link to={`/articles/${article._id}`}>{article.title}</Link></strong>
                     <p>Submitted by <Link to={`/users/${article.created_by}`}>{article.created_by}</Link> to <Link to={`/topics/${article.belongs_to}/articles`}> {article.belongs_to}</Link></p>
                   <section className="commentsAndVotes">
-                 <Voter article={article} updateArticleVote={this.updateArticleVote} />
+                 <Voter article={article} updateArticleVote={this.updateArticleVote} /> 
+                 <span className="seperator has-text-weight-light">|</span>
                  <i className="fa fa-comment" aria-hidden="true"></i> {article.comments} 
                   </section>
                   </section>

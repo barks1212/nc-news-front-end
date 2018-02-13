@@ -30,13 +30,18 @@
   display: flex;
   color: red;
   justify-content: flex-start;
-  margin-right: 13vh;
+  margin-right: 6vh;
 }
 
 .commentsAndVotes {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+
+.seperator {
+  margin-right: 7vh;
+  opacity: 0.6;
 }
 
 .upArrow{
