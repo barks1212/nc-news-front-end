@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PT from 'prop-types';
 import Voter from './Voter';
+import ArticleIcon from './Article-icon';
 import './Articles.css';
 
 
@@ -26,14 +27,28 @@ class Articles extends React.Component {
       <section className="articlesSection hero">
         <section className="articlesHolder hero-body customScroll">
           {this.state.articles.map((article, i) => {
+            if (article.hidden) return null
             return (
-              <section className="card" key={i}>
-                <section className="card-content">
-                  <Voter article={article} updateArticleVote={this.updateArticleVote} />
+              <section className="card" id="articleHolder" key={i}>
+                <section className="card-header">
+                <ArticleIcon topic={article.belongs_to}/>
+                      <Link to={`/topics/${article.belongs_to}/articles`}><p className="is-size-7">{'<'}Nc/ {article.belongs_to} /></p></Link>
+                      <section className="media-right">
+                      <span
+                        className='is-pulled-right button is-small is-text' id="hideButton"
+                        onClick={() => this.hideArticle(i)}>
+                        <i className="fa fa-minus" aria-hidden="true"></i>
+                      </span>
+                      </section>
+                </section>
+                <section className="card-content is-paddingless">
                   <section className="cardBody">
                     <strong><Link to={`/articles/${article._id}`}>{article.title}</Link></strong>
                     <p>Submitted by <Link to={`/users/${article.created_by}`}>{article.created_by}</Link> to <Link to={`/topics/${article.belongs_to}/articles`}> {article.belongs_to}</Link></p>
-                    <p>{article.comments} comments</p>
+                  <section className="commentsAndVotes">
+                 <Voter article={article} updateArticleVote={this.updateArticleVote} />
+                 <i className="fa fa-comment" aria-hidden="true"></i> {article.comments} 
+                  </section>
                   </section>
                 </section>
               </section>
@@ -68,6 +83,19 @@ class Articles extends React.Component {
       .then((res) => {
         return res.json()
       })
+  }
+
+  hideArticle = (index) => {
+    this.setState({
+      articles: this.state.articles.map((article, i) => {
+        if (i === index) {
+          return Object.assign({}, article, {
+            hidden: true
+          })
+        }
+        return article;
+      })
+    })
   }
 
 }
