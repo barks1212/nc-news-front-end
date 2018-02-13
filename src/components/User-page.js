@@ -1,20 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './User-page.css';
+import UserArticles from './User-articles';
+import UserComments from './User-comments';
 
 class UserPage extends React.Component {
   state = {
     user: {},
+    userArticles: [],
+    userComments: [],
     toggle: true,
-    buttonColor: 'black',
   }
 
   componentDidMount() {
     this.fetchUserById(this.props.match.params.username)
+    this.fetchArticlesByUser(this.props.match.params.username)
+    this.fetchCommentsByUser(this.props.match.params.username)
   }
+
+  componentWillReceiveProps(newprops) {
+    this.state.toggle ? this.fetchArticlesByUser(newprops.match.params.username) : this.fetchCommentsByUser(newprops.match.params.username)
+  }
+
   render() {
     const { user } = this.state;
-    let { toggle, buttonColor } = this.state;
     return (
       <section className="hero" id="userMain">
         <section className="hero is-danger" id="userTop">
@@ -46,9 +55,11 @@ class UserPage extends React.Component {
           <section className="hero-body">
             <section className="container" id="userInfo">
               <section className="buttons has-addons is-centered" id="userButtons">
-                <span className="button is-text is-size-2" onClick={this.articlesButton} style={{ 'color': this.state.buttonColor }} id="articles">Articles</span>
-                <span className="button is-text is-size-2"onClick={this.commentsButton} style={{ 'color': this.state.buttonColor }} id="comments">Comments</span>
+                <span className="button is-text is-size-2" onClick={() => this.handleChangeArticles(this.state.toggle)} id="articles">Articles</span>
+                <span className="button is-text is-size-2" onClick={() => this.handleChangeComments(this.state.toggle)} id="comments">Comments</span>
               </section>
+              {this.state.toggle ? <UserArticles articles={this.state.userArticles}/>
+              : <UserComments comments={this.state.userComments}/>}
             </section>
           </section>
         </section>
@@ -65,15 +76,31 @@ class UserPage extends React.Component {
       .catch(console.error)
   }
 
-  articlesButton = () => {
-    if (this.state.toggle === false) this.setState({ buttonColor: 'black' })
-    if (this.state.toggle === false && this.state.buttonColor === 'black') this.setState({ buttonColor: 'blue', toggle: true })
+  fetchArticlesByUser = (username) => {
+    fetch(`${process.env.REACT_APP_API_URL}/users/${username}/articles`)
+      .then(buffer => buffer.json())
+      .then((userArticles) => {
+        this.setState({ userArticles })
+      })
+      .catch(console.error)
+  }
+  fetchCommentsByUser = (username) => {
+    fetch(`${process.env.REACT_APP_API_URL}/users/${username}/comments`)
+      .then(buffer => buffer.json())
+      .then((userComments) => {
+        this.setState({ userComments })
+      })
+      .catch(console.error)
   }
 
-  commentsButton = () => {
-    if (this.state.toggle === true) this.setState({ buttonColor: 'black' })
-    if (this.state.toggle === true && this.state.buttonColor === 'black') this.setState({ buttonColor: 'blue', toggle: false })
+  handleChangeArticles = (flag) => {
+    if (flag === false) this.setState({toggle: true})
   }
+
+  handleChangeComments = (flag) => {
+    if (flag === true) this.setState({toggle: false})
+  }
+
 }
 
 

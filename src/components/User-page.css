@@ -33,17 +33,18 @@ img {
 }
 
 #userBody {
+  position: relative;
   height: 75%;
 }
 
 #userButtons {
+  position: relative;
   margin-top: 1%;
 }
 
 #articles {
   margin-left: 15%;
 }
-
 
 #articles:hover{
   background-color: transparent;
@@ -52,6 +53,7 @@ img {
 #comments {
 margin-right: 15%;
 }
+
 
 #comments:hover{
   background-color: transparent;
