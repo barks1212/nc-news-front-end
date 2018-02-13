@@ -9,7 +9,9 @@ const TopUsers = (props) => (
       <h1 className="title is-size-2 is-marginless">Top Users</h1>
     </section>
     <section className="topUsersContent is-paddingless hero-body">
-      {props.users && props.users.slice(0, 5).map((user, i) => {
+      {props.users && props.users.slice(0, 5).sort((a, b) => {
+        return b.totalVotes - a.totalVotes
+      }).map((user, i) => {
         return (
           <Link to={`/users/${user.username}`} className="topUser box is-paddingless" alt={i}>
           <section className="topUserName">
