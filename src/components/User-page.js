@@ -32,7 +32,7 @@ class UserPage extends React.Component {
               <section className="container">
                 <section className="navbar-brand">
                   <Link to='/'><a className='button is-size-5 has-text-danger'>
-                    <i className="fas fa-home"></i>
+                    <i className="fa fa-home" aria-hidden="true"></i>
                   </a>
                   </Link>
                 </section>

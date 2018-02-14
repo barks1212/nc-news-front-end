@@ -13,7 +13,7 @@ const TopUsers = (props) => (
         return b.totalVotes - a.totalVotes
       }).map((user, i) => {
         return (
-          <Link to={`/users/${user.username}`} className="topUser box is-paddingless" alt={i}>
+          <Link to={`/users/${user.username}`} className="topUser box is-paddingless" key={i}>
           <section className="topUserName">
           <span to={`users/${user.username}`} className="topUserSpan has-text-dark title is-size-4">{user.username}</span>
         </section>

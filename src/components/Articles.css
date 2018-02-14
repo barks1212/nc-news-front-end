@@ -13,12 +13,12 @@
 
 .cardBody{
   width: 90%;
-  border: 1px solid black;
 }
 
 .card-content {
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .articlesHolder{
@@ -28,13 +28,20 @@
 
 .voteCount{
   display: flex;
-  flex-direction: column;
   color: red;
+  justify-content: flex-start;
+  margin-right: 6vh;
+}
 
-  width: 7vh;
-  align-items: center;
-  justify-content: center;
-  margin-right: 3vh;
+.commentsAndVotes {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.seperator {
+  margin-right: 7vh;
+  opacity: 0.6;
 }
 
 .upArrow{
@@ -48,4 +55,8 @@
   background-color: white;
   color: red;
   cursor: pointer;
+}
+
+#hideButton {
+  text-decoration: none !important;
 }
