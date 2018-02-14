@@ -30,26 +30,33 @@ class Articles extends React.Component {
             if (article.hidden) return null
             return (
               <section className="card" id="articleHolder" key={i}>
+                <section className="media-right">
+                  <span
+                    className='is-pulled-right button is-small is-text' id="hideButton"
+                    onClick={() => this.hideArticle(i)}>
+                    <i className="fa fa-minus" aria-hidden="true"></i>
+                  </span>
+                </section>
                 <section className="card-header">
-                <ArticleIcon topic={article.belongs_to}/>
+                  <ArticleIcon topic={article.belongs_to} />
+                  <section className="articleDetails">
+                    <section className="articleTopic">
                       <Link to={`/topics/${article.belongs_to}/articles`}><p className="is-size-7">{'<'}Nc/ {article.belongs_to} /></p></Link>
-                      <section className="media-right">
-                      <span
-                        className='is-pulled-right button is-small is-text' id="hideButton"
-                        onClick={() => this.hideArticle(i)}>
-                        <i className="fa fa-minus" aria-hidden="true"></i>
-                      </span>
-                      </section>
+                    </section>
+                    <section className="articleOwner">
+                      <Link to={`/users/${article.created_by}`}><p className="is-size-7">{article.created_by}</p></Link>
+                    </section>
+                  </section>
                 </section>
                 <section className="card-content is-paddingless">
                   <section className="cardBody">
                     <strong><Link to={`/articles/${article._id}`}>{article.title}</Link></strong>
                     <p>Submitted by <Link to={`/users/${article.created_by}`}>{article.created_by}</Link> to <Link to={`/topics/${article.belongs_to}/articles`}> {article.belongs_to}</Link></p>
-                  <section className="commentsAndVotes">
-                 <Voter article={article} updateArticleVote={this.updateArticleVote} /> 
-                 <span className="seperator has-text-weight-light">|</span>
-                 <i className="fa fa-comment" aria-hidden="true"></i> {article.comments} 
-                  </section>
+                    <section className="commentsAndVotes">
+                      <Voter article={article} updateArticleVote={this.updateArticleVote} />
+                      <span className="seperator has-text-weight-light">|</span>
+                      <i className="fa fa-comment" aria-hidden="true"></i> {article.comments}
+                    </section>
                   </section>
                 </section>
               </section>
