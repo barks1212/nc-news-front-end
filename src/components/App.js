@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from './Home-page';
-import UserPage from './User-page'
+import UserPage from './User-page';
+import SingleArticle from './Single-article';
 
 class App extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class App extends React.Component {
               <Route exact path="/users/:username" render={(params) => <UserPage {...params} />} />
               <Route exact path="/users/:username/articles" render={(params) => <UserPage {...params} />} />
               <Route exact path="/users/:username/comments" render={(params) => <UserPage {...params} />} />
-              {/* <Route exact path="/articles/:articleId" render={(params) => <SingleArticle {...params}/>}/> */}
+              <Route exact path="/articles/:articleId" render={(params) => <SingleArticle {...params}/>}/>
             </Switch>
           </BrowserRouter>
         </section>

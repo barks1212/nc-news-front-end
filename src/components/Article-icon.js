@@ -15,7 +15,7 @@ const iconLookup = {
 
 const ArticleIcon = (props) => (
   <section className="icons">
-  <i className={iconLookup[props.topic]()} id="topicIcon" aria-hidden="true"></i>
+  {props.topic && <i className={iconLookup[props.topic]()} id="topicIcon" aria-hidden="true"></i>}
   </section>
 )
 

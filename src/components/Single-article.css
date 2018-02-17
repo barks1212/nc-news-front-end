@@ -1,0 +1,58 @@
+.hero-head {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2vh;
+}
+
+#articleInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 0.5vh;
+}
+
+#articleBody {
+  margin-left: 3vh;
+  margin-top: 3vh;
+  margin-right: 3vh;
+}
+
+.articleTitle {
+  margin-bottom: 2vh;
+}
+
+.articleText {
+  margin-bottom: 2vh;
+}
+
+.voteCount{
+  display: flex;
+  color: red;
+  justify-content: flex-start;
+  margin-right: 6vh;
+}
+
+#commentsAndVotes {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 3vh;
+}
+
+.seperator {
+  margin-right: 7vh;
+  opacity: 0.6;
+}
+
+.upArrow{
+  background-color: white;
+  color: red;
+  cursor: pointer;
+}
+
+
+.downArrow{
+  background-color: white;
+  color: red;
+  cursor: pointer;
+}
