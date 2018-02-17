@@ -1,3 +1,13 @@
+.singleArticleMain {
+  height: 100%;
+}
+
+.scrolling {
+  height: 90vh;
+  overflow-y: scroll;
+  background-color: brown
+}
+
 .hero-head {
   display: flex;
   flex-direction: row;
@@ -55,4 +65,31 @@
   background-color: white;
   color: red;
   cursor: pointer;
+}
+
+.commentsMain{
+  background-color: white;
+}
+
+#eachComment {
+  margin-bottom: 2vh;
+  border-bottom: dotted 1px black;
+}
+
+.commentBody {
+  margin-left: 1.5vh;
+}
+
+.commentFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer {
+  position: fixed;
+  padding: 2%;
+  top: 90%;
+  width: 100vw;
+  background: transparent;
+  opacity: 0.8;
 }
