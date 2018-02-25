@@ -2,6 +2,7 @@ import React from "react";
 import TopicsNav from './Topic-nav';
 import Articles from './Articles';
 import TopUsers from './Top-users';
+import Headers from './Headers';
 import './Home-page.css';
 
 class Home extends React.Component {
@@ -19,6 +20,7 @@ class Home extends React.Component {
   render() {
     return (
       <section className="homeMain">
+      <Headers />
         <section className="homeBody">
           <TopicsNav topics={this.state.topics} />
           <section className="columns">

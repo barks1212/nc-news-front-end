@@ -24,8 +24,8 @@ class Articles extends React.Component {
 
   render() {
     return (
-      <section className="articlesSection hero">
-        <section className="articlesHolder hero-body customScroll">
+      <section className="articlesSection is-paddingless is-mobile">
+        <section className="articlesHolder customScroll">
           {this.state.articles.map((article, i) => {
             if (article.hidden) return null
             return (

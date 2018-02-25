@@ -19,7 +19,7 @@ class SingleArticle extends React.Component {
       <section className="singleArticleMain">
         <section className="scrolling">
           <SingleArticleHeader article={this.state.article} />
-          <ArticleComments params={this.props.match.params} />
+          <ArticleComments params={this.props.match.params} article={this.state.article} />
         </section>
       </section>
     )

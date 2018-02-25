@@ -1,35 +1,45 @@
 
 
 .articlesSection {
-  background-color: yellow;
+  background-color: white;
   position: relative;
   padding: 5vh;
-  margin-right: 3vh;
-  margin-left: 5vh;
+  margin-right: 1vw;
+  margin-left: 1vw;
   max-height: 90%;
   overflow: hidden;
 }
 
+.card-header{
+  height: 5vh;
+}
 
 .cardBody{
-  width: 90%;
+  max-width: 100%;
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  width: 100%;
 }
 
+#articleHolder {
+  width: 100%;
+  margin-bottom: 2vw;
+}
 .articlesHolder{
-  padding: 0vw .6vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  max-width: 100%;
   margin-top: 1vw;
 }
 
 .voteCount{
   display: flex;
   justify-content: flex-start;
-  margin-right: 6vh;
+  margin-right: 2vw;
 }
 
 .commentsAndVotes {
@@ -39,7 +49,7 @@
 }
 
 .seperator {
-  margin-right: 7vh;
+  margin-right: 2vw;
   opacity: 0.6;
 }
 
@@ -66,9 +76,11 @@
   align-content: center;
   align-items: center;
   width: 5%;
-  margin-right: 1vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 .articleOwner {
   margin-left: 1vh;
 }
+
