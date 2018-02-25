@@ -2,6 +2,10 @@
   height: 100%;
 }
 
+#articleContainer {
+  margin-bottom: 0;
+}
+
 .scrolling {
   height: 90vh;
   overflow-y: scroll;
@@ -87,9 +91,13 @@
 
 .footer {
   position: fixed;
-  padding: 2%;
   top: 90%;
   width: 100vw;
-  background: transparent;
-  opacity: 0.8;
+}
+#commentAdd {
+  position: fixed;
+  top: 90%;
+  cursor: pointer;
+  width: 90vw;
+  right: 7%;
 }

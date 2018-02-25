@@ -85,13 +85,26 @@ class Articles extends React.Component {
   }
 
   updateArticleVote = (articleId, vote) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}?${vote}`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}?vote=${vote}`, {
       method: 'PUT'
     })
       .then((res) => {
         return res.json()
       })
-  }
+      .then((updatedArticle) => {  
+        const newArticles = this.state.articles.map((article) => {
+          if (updatedArticle._id === article._id) {
+            return Object.assign({}, article, {
+              votes: updatedArticle.votes
+            });
+          }
+          return article
+        })
+        this.setState({
+          articles: newArticles
+        })
+      })
+    }
 
   hideArticle = (index) => {
     this.setState({

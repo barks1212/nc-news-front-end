@@ -4,7 +4,8 @@ import Moment from 'moment';
 
 class ArticleComments extends React.Component {
   state = {
-    comments: []
+    comments: [],
+    overlayOn: false,
   }
 
   componentDidMount() {
@@ -30,7 +31,16 @@ class ArticleComments extends React.Component {
             </section>
           )
         })}
+        <section className="commentPoster">
+          <section className="footer">
+            <section className="field" id="commentAdder">
+              <section className="control">
+                <input className="input is-medium is-danger" id="commentAdd" type="text" placeholder="Add a comment..." onClick={this.overlayHandler} />
+              </section>
+            </section>
+          </section>
         </section>
+      </section>
     )
   }
 
@@ -42,6 +52,12 @@ class ArticleComments extends React.Component {
         this.setState({ comments })
       })
       .catch(console.error)
+  }
+
+  overlayHandler = () => {
+    !this.state.overlayOn ? ({this.setState({overlayOn: true})})
+    :
+    this.setState({overlayOn: false})
   }
 
 }

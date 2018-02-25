@@ -28,7 +28,6 @@
 
 .voteCount{
   display: flex;
-  color: red;
   justify-content: flex-start;
   margin-right: 6vh;
 }
@@ -44,16 +43,16 @@
   opacity: 0.6;
 }
 
-.upArrow{
+#upArrow{
   background-color: white;
-  color: red;
+  color: grey;
   cursor: pointer;
 }
 
 
-.downArrow{
+#downArrow{
   background-color: white;
-  color: red;
+  color: grey;
   cursor: pointer;
 }
 
