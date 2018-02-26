@@ -20,8 +20,8 @@ class SingleArticle extends React.Component {
     return (
       <section className="singleArticleMain">
         <section className="scrolling">
-          <SingleArticleHeader comments={this.state.comments} updateArticleVote={this.updateArticleVote} article={this.state.article} />
-          <ArticleComments params={this.props.match.params} article={this.state.article} />
+          <SingleArticleHeader comments={this.state.comments}  updateArticleVote={this.updateArticleVote} article={this.state.article} />
+          <ArticleComments comments={this.state.comments} fetchArticleComments={this.fetchArticleComments} submitComment={this.submitComment} params={this.props.match.params} article={this.state.article} />
         </section>
       </section>
     )
@@ -50,6 +50,27 @@ class SingleArticle extends React.Component {
         })
       })
       .catch(console.error)
+    }
+
+    submitComment = (id, event, comment) => {
+      event.preventDefault()
+      return fetch(`${process.env.REACT_APP_API_URL}/articles/${id}/comments`, {
+        method: 'POST',
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        }),
+        body: JSON.stringify({
+          text: comment
+        })
+      })
+        .then(buffer => buffer.json())
+        .then(res => {
+          const comments = this.state.comments.slice(0)
+          comments.push(res)
+          this.setState({
+            comments
+          })
+        })
     }
 
     fetchArticleComments = (id) => {

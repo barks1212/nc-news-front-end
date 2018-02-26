@@ -2,22 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'moment';
 import CommentPosterOverlay from './commentPosterOverlay';
+import PT from 'prop-types';
 
 class ArticleComments extends React.Component {
   state = {
-    comments: [],
     overlayOn: false,
   }
 
-  componentDidMount() {
-    this.fetchArticleComments(this.props.params.articleId)
-  }
 
   render() {
-    const { comments } = this.state;
+    const { comments } = this.props;
     return (
       <section className="commentsMain">
-        {this.state.comments && comments.map((comment, i) => {
+        {this.props.comments && comments.map((comment, i) => {
           return (
             <section className="container" id="eachComment">
               <section className="commentHead">
@@ -35,9 +32,9 @@ class ArticleComments extends React.Component {
         {this.state.overlayOn ? <CommentPosterOverlay
           overlayHandler={this.overlayHandler}
           article={this.props.article}
-          comments={this.state.comments}
-          fetchArticleComments={this.fetchArticleComments}
-          submitComment={this.submitComment}
+          comments={this.props.comments}
+          fetchArticleComments={this.props.fetchArticleComments}
+          submitComment={this.props.submitComment}
           params={this.props.params} /> : null}
         <section className="commentPoster">
             <section className="field is-marginless is-paddingless" id="commentAdder">
@@ -50,14 +47,6 @@ class ArticleComments extends React.Component {
     )
   }
 
-  fetchArticleComments = (id) => {
-    fetch(`${process.env.REACT_APP_API_URL}/articles/${id}/comments`)
-      .then(buffer => buffer.json())
-      .then(({ comments }) => {
-        this.setState({ comments })
-      })
-      .catch(console.error)
-  }
 
   overlayHandler = () => {
     !this.state.overlayOn ? this.setState({ overlayOn: true })
@@ -65,26 +54,6 @@ class ArticleComments extends React.Component {
       this.setState({ overlayOn: false })
   }
 
-  submitComment = (id, event, comment) => {
-    event.preventDefault()
-    return fetch(`${process.env.REACT_APP_API_URL}/articles/${id}/comments`, {
-      method: 'POST',
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      }),
-      body: JSON.stringify({
-        text: comment
-      })
-    })
-      .then(buffer => buffer.json())
-      .then(res => {
-        const comments = this.state.comments.slice(0)
-        comments.push(res)
-        this.setState({
-          comments
-        })
-      })
-  }
 }
 
 
