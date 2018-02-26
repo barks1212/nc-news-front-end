@@ -15,8 +15,9 @@
 
 .postHolder {
   background-color: white;
-  max-width: 75%;
-  margin-top: 10vh;
+  height: 60vh;
+  width: 80vw;
+  margin-top: 17vh;
   }
 
   .contents {
@@ -26,31 +27,34 @@
     margin-bottom: 1vw;
   }
 
-.header {
-  margin-bottom: 2vh;
-}
-
 .articleDetailsOverlay {
   border-bottom: dotted black 2px;
 }
 
 .postArea {
   margin-top: 2vh;
+  margin-bottom: 1vh;
 }
 
-/* #commentInputField{
-  height: 2.25em;
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+#commentInputField{
+  height: 5.25em;
   transition: height 2s ease;
   resize: none;
   border-radius: 0;
 }
 #commentInputField:focus{
-  height: 15em;
+  height: 10em;
   transition: height 2s ease;
-} */
+}
 
 .submitButton {
   display: flex;
   flex-direction: column;
+  width: 72vw;
   justify-content: flex-end;
 }
