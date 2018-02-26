@@ -39,20 +39,20 @@ class UserPage extends React.Component {
               </section>
             </nav>
           </section>
-          <section className="hero-body">
+          <section className="hero-body is-paddingless">
             <section className="container has-text-centered" id="userPageHero">
-              <section className="profileImage is-overlay">
+              <section className="profileImage">
                 <figure className="image is-128x128" id="profileImage">
                   <img src={user.avatar_url} alt="userPic" />
                 </figure>
-                <h1 className="title has-text-black is-size-4">{user.username}</h1>
-                <h2 className="subtitle has-text-black is-size-6">{user.totalVotes} total reputation</h2>
               </section>
             </section>
           </section>
         </section>
         <section className="userBody" id="userBody">
-            <section className="container" id="userInfo">
+            <section className="container has-text-centered is-paddingless is-marginless" id="userInfo">
+                <h1 className="title has-text-white is-size-4 is-paddingless is-marginless">{user.username}</h1>
+                <h2 className="subtitle has-text-white is-size-6 is-paddingless is-marginless">{user.totalVotes} total reputation</h2>
               <section className="buttons has-addons is-centered" id="userButtons">
                 <span className="button is-text has-text-black is-size-4" onClick={() => this.handleChangeArticles(this.state.toggle)} id="articles">Articles</span>
                 <span className="button is-text has-text-black is-size-4" onClick={() => this.handleChangeComments(this.state.toggle)} id="comments">Comments</span>
