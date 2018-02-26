@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'moment';
 import CommentPosterOverlay from './commentPosterOverlay';
+import CommentVoter from './Comment-voter';
 import PT from 'prop-types';
 
 class ArticleComments extends React.Component {
@@ -24,7 +25,13 @@ class ArticleComments extends React.Component {
                 {comment.body}
               </section>
               <section className="commentFooter">
-                <p className="has-text-weight-light">{comment.votes}</p>
+              {comment.created_by === 'northcoder' ? 
+              <section className="deleteButton">
+              <span className="button is-text is-size-7 is-pulled-left" id="delButton" onClick={() => this.props.deleteComment(this.props.params.articleId, comment._id)}> Delete</span> 
+              </section>
+              : null
+            }
+                <CommentVoter comment={comment} updateCommentVote={this.props.updateCommentVote} />
               </section>
             </section>
           )

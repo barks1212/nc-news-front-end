@@ -22,6 +22,16 @@
   margin-left: 1vw;
 }
 
+.deleteButton {
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 3vw;
+}
+
+#delButton:hover {
+  background-color: transparent;
+}
+
 #topicIcon {
   color: white;
 }

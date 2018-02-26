@@ -20,8 +20,17 @@ class SingleArticle extends React.Component {
     return (
       <section className="singleArticleMain">
         <section className="scrolling">
-          <SingleArticleHeader comments={this.state.comments}  updateArticleVote={this.updateArticleVote} article={this.state.article} />
-          <ArticleComments comments={this.state.comments} fetchArticleComments={this.fetchArticleComments} submitComment={this.submitComment} params={this.props.match.params} article={this.state.article} />
+          <SingleArticleHeader comments={this.state.comments}  
+          updateArticleVote={this.updateArticleVote} 
+          article={this.state.article} />
+
+          <ArticleComments deleteComment={this.deleteComment} 
+          comments={this.state.comments}
+          updateCommentVote={this.updateCommentVote} 
+          fetchArticleComments={this.fetchArticleComments}
+          submitComment={this.submitComment} 
+          params={this.props.match.params}
+          article={this.state.article} />
         </section>
       </section>
     )
@@ -73,6 +82,28 @@ class SingleArticle extends React.Component {
         })
     }
 
+    updateCommentVote = (commentId, vote) => {
+      return fetch(`${process.env.REACT_APP_API_URL}/comments/${commentId}?vote=${vote}`, {
+        method: 'PUT'
+      })
+        .then((res) => {
+          return res.json()
+        })
+        .then((updatedComment) => {  
+          const newComments = this.state.comments.map((comment) => {
+            if (updatedComment._id === comment._id) {
+              return Object.assign({}, comment, {
+                votes: updatedComment.votes
+              });
+            }
+            return comment
+          })
+          this.setState({
+            comments: newComments
+          })
+        })
+      }
+
     fetchArticleComments = (id) => {
       fetch(`${process.env.REACT_APP_API_URL}/articles/${id}/comments`)
         .then(buffer => buffer.json())
@@ -80,6 +111,13 @@ class SingleArticle extends React.Component {
           this.setState({ comments })
         })
         .catch(console.error)
+    }
+
+    deleteComment = (id, commentId) => {
+      return fetch(`${process.env.REACT_APP_API_URL}/comments/${commentId}`, {
+        method: 'DELETE'
+      })
+      .then(() => this.fetchArticleComments(id))
     }
 }
 
