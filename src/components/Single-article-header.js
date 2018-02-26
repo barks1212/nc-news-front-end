@@ -35,8 +35,8 @@ class SingleArticleHeader extends React.Component {
         <section className="hero-footer" id="articleFooter">
           <section className="container" id="commentsAndVotes">
             <Voter article={article} updateArticleVote={this.props.updateArticleVote} />
-            <span className="seperator has-text-weight-light">|</span>
-            <i className="fa fa-comment" aria-hidden="true"></i> <p className="subtitle is-marginless">{this.props.comments.length}</p>
+            <span className="seperator has-text-white is-size-5 has-text-weight-light">|</span>
+            <i className="fa fa-comment" aria-hidden="true" id="commentIcon"></i> <p className="subtitle has-text-white is-marginless">{this.props.comments.length}</p>
           </section>
         </section>
       </section>

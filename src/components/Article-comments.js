@@ -40,15 +40,13 @@ class ArticleComments extends React.Component {
           submitComment={this.submitComment}
           params={this.props.params} /> : null}
         <section className="commentPoster">
-          <section className="footer">
-            <section className="field" id="commentAdder">
-              <section className="control">
+            <section className="field is-marginless is-paddingless" id="commentAdder">
+              <section className="control is-paddingless is-marginless">
                 <input className="input is-medium is-danger" id="commentAdd" type="text" placeholder="Add a comment..." onClick={this.overlayHandler} />
               </section>
             </section>
           </section>
         </section>
-      </section>
     )
   }
 

@@ -8,7 +8,7 @@ class App extends React.Component {
   render() {
     return (
       <section className="main">
-        <section className="bodyContent is-danger">
+        <section className="bodyContent">
           <BrowserRouter>
             <Switch>
               <Route exact path="/" render={() => <Home />} />

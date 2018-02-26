@@ -1,16 +1,17 @@
 .singleArticleMain {
   height: 100%;
+  margin-left: 2vw;
+  margin-right: 2vw;
 }
 
 #articleContainer {
-  margin-bottom: 0;
+  /* margin-bottom: 5vh; */
   background-color: hsl(0, 0%, 21%)
 }
 
 .scrolling {
   height: 90vh;
   overflow-y: scroll;
-  background-color: brown;
 }
 
 .hero-head {
@@ -38,7 +39,7 @@
 
 #articleBody {
   margin-left: 3vh;
-  margin-top: 3vh;
+  /* margin-top: 3vh; */
   margin-right: 3vh;
 }
 
@@ -52,7 +53,7 @@
 
 .voteCount{
   display: flex;
-  color: red;
+  color: white;
   justify-content: flex-start;
   margin-right: 6vh;
 }
@@ -64,30 +65,33 @@
   margin-left: 3vh;
 }
 
+#commentIcon {
+  color: white;
+}
+
 .seperator {
+  color: white;
   margin-right: 7vh;
   opacity: 0.6;
 }
 
 #upArrow{
   background-color: transparent;
-  color: grey;
+  color: white;
   cursor: pointer;
-}
-
-#articleFooter {
-  background-color: white;
 }
 
 
 #downArrow{
   background-color: transparent;
-  color: grey;
+  color: white;
   cursor: pointer;
 }
 
 .commentsMain{
   background-color: white;
+  padding: 2%;
+  overflow: hidden;
 }
 
 #eachComment {
@@ -104,15 +108,14 @@
   justify-content: flex-end;
 }
 
-.footer {
-  position: fixed;
-  top: 90%;
-  width: 100vw;
-}
+
 #commentAdd {
   position: fixed;
-  top: 90%;
+  top: 92%;
   cursor: pointer;
-  width: 90vw;
-  right: 7%;
+  width: 96.5vw;
+  left: 1.8%;
+  background-color: white;
 }
+
+
