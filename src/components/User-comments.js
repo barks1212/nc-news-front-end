@@ -11,7 +11,7 @@ const UserComments = (props) => (
             <section className="card-content">
               <section className="cardBody">
                 <h1><strong>{comment.commentArticle}</strong></h1>
-                <p className="is-size-7 "> In {'<'}Nc/ {comment.commentTopic} >  {comment.votes} <i className="fa fa-arrow-up" aria-hidden="true"></i></p>
+                <p className="is-size-7 "> {'<'}Nc/ {comment.commentTopic} >  {comment.votes} <i className="fa fa-arrow-up" aria-hidden="true"></i></p>
                 <br/>
                 <p className="is-size-7">{comment.body}</p>
               </section>

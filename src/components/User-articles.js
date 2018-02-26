@@ -12,8 +12,9 @@ class UserArticles extends React.Component {
             <section className="card" key={i}>
               <section className="card-content is-paddingless">
                 <section className="cardBody">
+                <Link to={`/topics/${article.belongs_to}/articles`}><p className="is-size-7">{'<'}Nc/ {article.belongs_to} /></p></Link>
                   <strong><Link to={`/articles/${article._id}`}>{article.title}</Link></strong>
-                  <p>Submitted by <Link to={`/users/${article.created_by}`}>{article.created_by}</Link> to <Link to={`/topics/${article.belongs_to}/articles`}> {article.belongs_to}</Link></p>
+                 
                   <section className="commentsAndVotes">
                     <Voter article={article} updateArticleVote={this.updateArticleVote} /> 
                     <span className="seperator has-text-weight-light">|</span>

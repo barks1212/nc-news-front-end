@@ -1,36 +1,47 @@
 
 
 .articlesSection {
-  background-color: yellow;
+  background-color:hsl(0, 0%, 21%);
   position: relative;
-  padding: 5vh;
-  margin-right: 3vh;
-  margin-left: 5vh;
   max-height: 90%;
   overflow: hidden;
 }
 
+.card-header{
+  height: 5vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
 
 .cardBody{
-  width: 90%;
+  max-width: 100%;
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  width: 100%;
+  margin-left: 2vw;
+  margin-right: 2vw;
 }
 
+#articleHolder {
+  width: 100%;
+  margin-bottom: 2vw;
+}
 .articlesHolder{
-  padding: 0vw .6vw;
+  margin-left: 0.3vw;
+  margin-right: 0.3vw;
+  max-width: 100%;
   margin-top: 1vw;
+  max-height: 96vh;
 }
 
 .voteCount{
   display: flex;
-  color: red;
   justify-content: flex-start;
-  margin-right: 6vh;
+  margin-right: 2vw;
 }
 
 .commentsAndVotes {
@@ -40,23 +51,38 @@
 }
 
 .seperator {
-  margin-right: 7vh;
+  margin-right: 2vw;
   opacity: 0.6;
 }
 
-.upArrow{
+#upArrow{
   background-color: white;
-  color: red;
+  color: grey;
   cursor: pointer;
 }
 
 
-.downArrow{
+#downArrow{
   background-color: white;
-  color: red;
+  color: grey;
   cursor: pointer;
 }
 
 #hideButton {
   text-decoration: none !important;
 }
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 5%;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.articleOwner {
+  margin-left: 1vh;
+}
+
