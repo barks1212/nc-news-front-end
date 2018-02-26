@@ -21,7 +21,6 @@ class ArticleComments extends React.Component {
           return (
             <section className="container" id="eachComment">
               <section className="commentHead">
-              {console.log(this.state.comments)}
                 <Link to={`/users/${comment.created_by}`}> <span className="has-text-weight-light">{comment.created_by}</span></Link> <span className="has-text-weight-light">. {Moment(comment.created_at).fromNow()}</span>
               </section>
               <section className="commentBody">
@@ -71,20 +70,19 @@ class ArticleComments extends React.Component {
 
   submitComment = (id, event, comment) => {
     event.preventDefault()
-    return fetch(`${process.env.REACT_APP_API_URL}/api/articles/${id}/comments`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/articles/${id}/comments`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'
       }),
       body: JSON.stringify({
-        body: comment
+        text: comment
       })
     })
+      .then(buffer => buffer.json())
       .then(res => {
-        console.log(res, '****')
-        const newCom = res.comment;
         const comments = this.state.comments.slice(0)
-        comments.push(newCom)
+        comments.push(res)
         this.setState({
           comments
         })

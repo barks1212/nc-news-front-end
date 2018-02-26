@@ -3,6 +3,7 @@ import TopicsNav from './Topic-nav';
 import Articles from './Articles';
 import TopUsers from './Top-users';
 import Headers from './Headers';
+import HomeTopicFlare from './Home-topic-flare';
 import './Home-page.css';
 
 class Home extends React.Component {
@@ -10,6 +11,7 @@ class Home extends React.Component {
   state = {
     topics: [],
     users: [],
+    showArticles: true
   };
 
   componentDidMount() {
@@ -18,22 +20,37 @@ class Home extends React.Component {
   }
 
   render() {
+
     return (
       <section className="homeMain">
-      <Headers />
+        <Headers topic={this.props.match ? this.props.match.params.topic : null} showArticles={this.state.showArticles} />
         <section className="homeBody">
-          <TopicsNav topics={this.state.topics} />
-          <section className="columns">
-            <section className="column is-two-thirds">
-              <Articles topics={this.state.topics} params={this.props.match ? this.props.match.params.topic : null} />
-            </section>
-            <section className="column is-one-third">
-              <TopUsers users={this.state.users} />
-            </section>
+          <section className="homeContent">
+            {this.state.showArticles ?
+              <section className="homeArticles">
+                <Articles topics={this.state.topics} params={this.props.match ? this.props.match.params.topic : null} />
+              </section>
+              :
+              <section className="homeTopUsers">
+                <TopUsers users={this.state.users} />
+              </section>}
           </section>
+        </section>
+        <section className="homeFooter nav">
+          <span className="button is-text is-size-5 has-text-white" onClick={() => this.showArticlesHome(this.state.showArticles)} id="articlesToggle">Articles</span>
+          <span className="is-size-4 has-text-white">|</span>
+          <span className="button is-text is-size-5 has-text-white" onClick={() => this.showTopUsersHome(this.state.showArticles)} id="usersToggle">Top Users</span>
         </section>
       </section>
     )
+  }
+
+  showArticlesHome = (flag) => {
+    if (!flag) this.setState({ showArticles: true })
+  }
+
+  showTopUsersHome = (flag) => {
+    if (flag) this.setState({ showArticles: false })
   }
 
   fetchTopics = () => {

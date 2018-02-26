@@ -2,9 +2,21 @@ img {
   color: transparent;
 }
 
+.topUsers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  /* margin-top: 27vh; */
+  height: 65vh;
+}
+
 .topUsersHeader {
   display: flex;
   justify-content: center;
+  margin-bottom: 2vh;
+  height: 6;
+  background-color: hsl(0, 0%, 21%)
 }
 
 .topUser {
@@ -12,12 +24,13 @@ img {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+  height: 6.5vh;
   background: rgb(255,255,255);
 }
 
 .topUsersContent{
-  background-color: red;
-  height: 100%;
   max-height: 100%;
+  background-color: hsl(0, 0%, 21%);
 }
 
