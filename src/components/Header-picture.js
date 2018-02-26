@@ -20,11 +20,11 @@ const HeaderPicture = (props) => (
   <section className="pictureMain">
   {props.showArticles ? <section className="container is-paddingless is-marginless" id="headerPictureContainer">
 
-   {props.topic != null ? <img src={picLookup[props.topic]()} id="headerPic"/> : <img src={'/pictures/nc1.jpg_large'} id="headerPic"/>}
+   {props.topic != null ? <img src={picLookup[props.topic]()} id="headerPic" alt=''/> : <img src={'/pictures/nc1.jpg_large'} id="headerPic" alt=''/>}
    </section>
 
   :<section className="container is-paddingless is-marginless" id="headerPictureContainer">
-   <img src="https://www.advisorkhoj.com/resources/images/articles/Top-5-Mutual-Fund/Top-5-Mutual-Fund.jpg" /> 
+   <img src="https://www.advisorkhoj.com/resources/images/articles/Top-5-Mutual-Fund/Top-5-Mutual-Fund.jpg" alt='' /> 
   </section>}
    
   </section>

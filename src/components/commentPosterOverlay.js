@@ -15,14 +15,12 @@ class CommentPosterOverlay extends React.Component {
               </span>
             </section>
             <section className="articleDetailsOverlay">
-              <h1 className="title">{this.props.article.title}</h1>
+              <h1 className="title is-size-5">{this.props.article.title}</h1>
             </section>
-
-
             <section className="postArea">
-              <form className='field is-grouped' onSubmit={(e) => this.mainSubmit( this.props.params.articleId,e, this.state.comment)} >
+              <form className='field is-grouped' onSubmit={(e) => this.mainSubmit(this.props.params.articleId, e, this.state.comment)} >
                 <section className='control is-expanded'>
-                  <textarea id="commentInputField" className='textarea is-large' onChange={this.changeHandler} value={this.state.comment} placeholder='write a comment...' />
+                  <textarea autoFocus id="commentInputField" className='textarea is-large' onChange={this.changeHandler} value={this.state.comment} placeholder='Write a comment...' />
                 </section>
                 <section className="submitButton">
                   <button className='control button is-pulled-right is-info' id="submitButton" type='submit'>Post comment</button>
@@ -36,17 +34,16 @@ class CommentPosterOverlay extends React.Component {
   }
   changeHandler = (event) => {
     if (event) event.preventDefault();
-    let { comment } = this.state;
-      this.setState({
-        comment: event.target.value,
-      });
+    this.setState({
+      comment: event.target.value,
+    });
   }
 
   mainSubmit = (id, event, comment) => {
     event.preventDefault()
     this.props.submitComment(id, event, comment)
     this.props.overlayHandler()
-    this.setState({comment: ''})
+    this.setState({ comment: '' })
   }
 
 }

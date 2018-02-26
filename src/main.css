@@ -8,12 +8,14 @@ body{
 
 .bodyContent{
   overflow: hidden;
-  height: 96.1%;
+  height: 100vh;
 }
 
 .main{
   height: 100%;
   overflow: hidden;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 .defaultPadding{

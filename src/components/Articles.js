@@ -55,7 +55,7 @@ class Articles extends React.Component {
                     <section className="commentsAndVotes">
                       <Voter article={article} updateArticleVote={this.updateArticleVote} />
                       <span className="seperator has-text-weight-light">|</span>
-                      <i className="fa fa-comment" aria-hidden="true"></i> {article.comments}
+                      <i className="fa fa-comment" id="commentIcon" aria-hidden="true"></i> <p className="has-text-white" >{article.comments}</p>
                     </section>
                   </section>
                 </section>

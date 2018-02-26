@@ -23,4 +23,8 @@ const UserComments = (props) => (
   </section>
 )
 
+UserComments.propTypes = {
+  comments: PT.array
+}
+
 export default UserComments
