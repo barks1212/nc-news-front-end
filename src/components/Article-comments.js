@@ -60,7 +60,16 @@ class ArticleComments extends React.Component {
       :
       this.setState({ overlayOn: false })
   }
+}
 
+ArticleComments.propTypes = {
+  deleteComment: PT.func,
+  comments: PT.array,
+  updateCommentVote: PT.func,
+  fetchArticleComments: PT.func,
+  submitComment: PT.func,
+  params: PT.string,
+  article: PT.object
 }
 
 
