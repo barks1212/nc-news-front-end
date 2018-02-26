@@ -47,9 +47,13 @@ http://localhost:3000
 #This app was developed Mobile First and is intended for mobile use
 
 ![Screenshot](/public/screenshots/home.png "Home page on mobile")
+###Home page on mobile
 
 ![Screenshot](/public/screenshots/top.png "Top users on mobile")
+###Top users on mobile
 
-![Screenshot](/public/screenshots/article.ong "Single article on mobile")
+![Screenshot](/public/screenshots/article.png "Single article on mobile")
+###Single article on mobile
 
 ![Screenshot](/public/screenshots/user.png "User profile on mobile")
+###User profile on mobile
