@@ -4,18 +4,29 @@
 
 #articleContainer {
   margin-bottom: 0;
+  background-color: hsl(0, 0%, 21%)
 }
 
 .scrolling {
   height: 90vh;
   overflow-y: scroll;
-  background-color: brown
+  background-color: brown;
 }
 
 .hero-head {
   display: flex;
   flex-direction: row;
   margin-top: 2vh;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+#topicIcon {
+  color: white;
+}
+
+#homeButton {
+  margin-right: 1vw;
 }
 
 #articleInfo{
@@ -58,16 +69,20 @@
   opacity: 0.6;
 }
 
-.upArrow{
-  background-color: white;
-  color: red;
+#upArrow{
+  background-color: transparent;
+  color: grey;
   cursor: pointer;
 }
 
-
-.downArrow{
+#articleFooter {
   background-color: white;
-  color: red;
+}
+
+
+#downArrow{
+  background-color: transparent;
+  color: grey;
   cursor: pointer;
 }
 

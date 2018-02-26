@@ -4,8 +4,12 @@
 
 #userTop{
   height: 27%;
+  background-color:hsl(0, 0%, 21%)
 }
 
+#home {
+  margin-left: 1vw;
+}
 
 img {
   color: transparent;
@@ -32,18 +36,34 @@ img {
   justify-content: center;
 }
 
+#profileImage {
+  size: 2%;
+}
+
 #userBody {
   position: relative;
   height: 75%;
+  background-color: hsl(0, 0%, 21%);
+}
+
+#userInfo {
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 #userButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   position: relative;
-  margin-top: 1%;
+  margin-top: 2vh;
+  margin-bottom: 0vh;
+  background-color: white;
+  padding-top: 8vh;
 }
 
 #articles {
-  margin-left: 15%;
+  margin-left: 10%;
 }
 
 #articles:hover{
@@ -51,7 +71,7 @@ img {
 }
 
 #comments {
-margin-right: 15%;
+margin-right: 10%;
 }
 
 

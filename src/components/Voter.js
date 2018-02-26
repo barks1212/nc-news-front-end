@@ -30,7 +30,7 @@ class Voter extends React.Component {
       this.props.updateArticleVote(id, vote)
       this.props.updateArticleVote(id, vote)
     }
-    if (vote === 'down' && !this.state.voteDown && !this.state.voteUp) {
+    else if (vote === 'down' && !this.state.voteDown && !this.state.voteUp) {
       this.setState({voteDown: true})
       this.props.updateArticleVote(id, vote)
     }
