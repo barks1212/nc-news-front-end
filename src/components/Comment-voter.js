@@ -47,4 +47,9 @@ class CommentVoter extends React.Component {
   }
 }
 
+CommentVoter.propTypes = {
+  comment: PT.object,
+  updateCommentVote: PT.func,
+}
+
 export default CommentVoter;

@@ -1,9 +1,7 @@
 import React from "react";
-import TopicsNav from './Topic-nav';
 import Articles from './Articles';
 import TopUsers from './Top-users';
 import Headers from './Headers';
-import HomeTopicFlare from './Home-topic-flare';
 import './Home-page.css';
 
 class Home extends React.Component {

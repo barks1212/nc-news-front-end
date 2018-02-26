@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ArticleComments from './Article-comments';
 import SingleArticleHeader from './Single-article-header';
 import './Single-article.css';
@@ -16,7 +15,6 @@ class SingleArticle extends React.Component {
   }
 
   render() {
-    const { article } = this.state
     return (
       <section className="singleArticleMain">
         <section className="scrolling">
@@ -46,7 +44,6 @@ class SingleArticle extends React.Component {
   }
 
   updateArticleVote = (articleId, vote) => {
-    const article = this.state.article
     return fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}?vote=${vote}`, {
       method: 'PUT'
     })

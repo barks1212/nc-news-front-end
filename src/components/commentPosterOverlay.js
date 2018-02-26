@@ -34,7 +34,6 @@ class CommentPosterOverlay extends React.Component {
   }
   changeHandler = (event) => {
     if (event) event.preventDefault();
-    let { comment } = this.state;
     this.setState({
       comment: event.target.value,
     });

@@ -17,7 +17,7 @@ class ArticleComments extends React.Component {
       <section className="commentsMain">
         {this.props.comments && comments.map((comment, i) => {
           return (
-            <section className="container" id="eachComment">
+            <section className="container" id="eachComment" key={i}>
               <section className="commentHead">
                 <Link to={`/users/${comment.created_by}`}> <span className="has-text-weight-light">{comment.created_by}</span></Link> <span className="has-text-weight-light">. {Moment(comment.created_at).fromNow()}</span>
               </section>
