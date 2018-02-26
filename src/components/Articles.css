@@ -3,8 +3,7 @@
 .articlesSection {
   background-color:hsl(0, 0%, 21%);
   position: relative;
-  max-height: 90%;
-  overflow: hidden;
+  max-height: 100%;
 }
 
 .card-header{
@@ -36,6 +35,7 @@
   max-width: 100%;
   margin-top: 1vw;
   max-height: 96vh;
+  overflow: scroll;
 }
 
 .voteCount{
