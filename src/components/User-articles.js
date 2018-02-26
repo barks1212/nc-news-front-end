@@ -14,9 +14,8 @@ class UserArticles extends React.Component {
                 <section className="cardBody">
                 <Link to={`/topics/${article.belongs_to}/articles`}><p className="is-size-7">{'<'}Nc/ {article.belongs_to} /></p></Link>
                   <strong><Link to={`/articles/${article._id}`}>{article.title}</Link></strong>
-                 
                   <section className="commentsAndVotes">
-                    <Voter article={article} updateArticleVote={this.updateArticleVote} /> 
+                    <Voter article={article} updateArticleVote={this.props.updateArticleVote} /> 
                     <span className="seperator has-text-weight-light">|</span>
                     <i className="fa fa-comment" aria-hidden="true"></i> {article.comments}
                   </section>
@@ -27,14 +26,6 @@ class UserArticles extends React.Component {
         })}
       </section>
     )
-  }
-  updateArticleVote = (articleId, vote) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}?${vote}`, {
-      method: 'PUT'
-    })
-      .then((res) => {
-        return res.json()
-      })
   }
 }
 

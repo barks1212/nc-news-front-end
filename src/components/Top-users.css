@@ -5,17 +5,17 @@ img {
 .topUsers {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
-  /* margin-top: 27vh; */
   height: 65vh;
+  padding: 0px;
 }
 
 .topUsersHeader {
   display: flex;
   justify-content: center;
   margin-bottom: 2vh;
-  height: 6;
+  height: 6vh;
   background-color: hsl(0, 0%, 21%)
 }
 
@@ -25,7 +25,7 @@ img {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  height: 6.5vh;
+  height: 7vh;
   background: rgb(255,255,255);
 }
 

@@ -25,11 +25,11 @@ class UserPage extends React.Component {
   render() {
     const { user } = this.state;
     return (
-      <section className="hero" id="userMain">
+      <section className="userMain is-mobile" id="userMain">
         <section className="hero is-danger" id="userTop">
           <section className="hero-head">
             <nav className="navbar">
-              <section className="container">
+              <section className="container" id="home">
                 <section className="navbar-brand">
                   <Link to='/'><a className='button is-size-5 has-text-danger'>
                     <i className="fa fa-home" aria-hidden="true"></i>
@@ -45,23 +45,21 @@ class UserPage extends React.Component {
                 <figure className="image is-128x128" id="profileImage">
                   <img src={user.avatar_url} alt="userPic" />
                 </figure>
-                <h1 className="title">{user.username}</h1>
-                <h2 className="subtitle">{user.totalVotes} total reputation</h2>
+                <h1 className="title has-text-black is-size-4">{user.username}</h1>
+                <h2 className="subtitle has-text-black is-size-6">{user.totalVotes} total reputation</h2>
               </section>
             </section>
           </section>
         </section>
-        <section className="hero is-info" id="userBody">
-          <section className="hero-body">
+        <section className="userBody" id="userBody">
             <section className="container" id="userInfo">
               <section className="buttons has-addons is-centered" id="userButtons">
-                <span className="button is-text is-size-2" onClick={() => this.handleChangeArticles(this.state.toggle)} id="articles">Articles</span>
-                <span className="button is-text is-size-2" onClick={() => this.handleChangeComments(this.state.toggle)} id="comments">Comments</span>
+                <span className="button is-text has-text-black is-size-4" onClick={() => this.handleChangeArticles(this.state.toggle)} id="articles">Articles</span>
+                <span className="button is-text has-text-black is-size-4" onClick={() => this.handleChangeComments(this.state.toggle)} id="comments">Comments</span>
               </section>
-              {this.state.toggle ? <UserArticles articles={this.state.userArticles}/>
+              {this.state.toggle ? <UserArticles updateArticleVote={this.updateArticleVote} articles={this.state.userArticles}/>
               : <UserComments comments={this.state.userComments}/>}
             </section>
-          </section>
         </section>
       </section>
     )
@@ -92,6 +90,28 @@ class UserPage extends React.Component {
       })
       .catch(console.error)
   }
+
+  updateArticleVote = (articleId, vote) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}?vote=${vote}`, {
+      method: 'PUT'
+    })
+      .then((res) => {
+        return res.json()
+      })
+      .then((updatedArticle) => {  
+        const newArticles = this.state.userArticles.map((article) => {
+          if (updatedArticle._id === article._id) {
+            return Object.assign({}, article, {
+              votes: updatedArticle.votes
+            });
+          }
+          return article
+        })
+        this.setState({
+          userArticles: newArticles
+        })
+      })
+    }
 
   handleChangeArticles = (flag) => {
     if (flag === false) this.setState({toggle: true})

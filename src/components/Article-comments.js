@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'moment';
-import CommentPosterOverlay from './CommentPosterOverlay';
+import CommentPosterOverlay from './commentPosterOverlay';
 
 class ArticleComments extends React.Component {
   state = {
@@ -56,7 +56,6 @@ class ArticleComments extends React.Component {
     fetch(`${process.env.REACT_APP_API_URL}/articles/${id}/comments`)
       .then(buffer => buffer.json())
       .then(({ comments }) => {
-        console.log(comments)
         this.setState({ comments })
       })
       .catch(console.error)
@@ -87,20 +86,6 @@ class ArticleComments extends React.Component {
           comments
         })
       })
-  }
-
-
-  addComment = (id, newComment) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/articles/${id}/comments`, {
-      method: 'POST',
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      }),
-      body: JSON.stringify({
-        body: newComment
-      })
-    })
-      .then(res => res.json());
   }
 }
 

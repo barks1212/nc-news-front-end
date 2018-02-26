@@ -7,10 +7,12 @@ import './Single-article.css';
 class SingleArticle extends React.Component {
   state = {
     article: {},
+    comments: []
     }
 
   componentDidMount() {
     this.fetchArticle(this.props.match.params.articleId);
+    this.fetchArticleComments(this.props.match.params.articleId)
   }
 
   render() {
@@ -18,7 +20,7 @@ class SingleArticle extends React.Component {
     return (
       <section className="singleArticleMain">
         <section className="scrolling">
-          <SingleArticleHeader article={this.state.article} />
+          <SingleArticleHeader comments={this.state.comments} updateArticleVote={this.updateArticleVote} article={this.state.article} />
           <ArticleComments params={this.props.match.params} article={this.state.article} />
         </section>
       </section>
@@ -34,6 +36,30 @@ class SingleArticle extends React.Component {
       .catch(console.error)
   }
 
+  updateArticleVote = (articleId, vote) => {
+    const article = this.state.article
+    return fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}?vote=${vote}`, {
+      method: 'PUT'
+    })
+      .then((res) => {
+        return res.json()
+      })
+      .then((updatedArticle) => {  
+        this.setState({
+          article: updatedArticle
+        })
+      })
+      .catch(console.error)
+    }
+
+    fetchArticleComments = (id) => {
+      fetch(`${process.env.REACT_APP_API_URL}/articles/${id}/comments`)
+        .then(buffer => buffer.json())
+        .then(({ comments }) => {
+          this.setState({ comments })
+        })
+        .catch(console.error)
+    }
 }
 
 export default SingleArticle;
