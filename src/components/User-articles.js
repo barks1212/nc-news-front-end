@@ -1,13 +1,14 @@
 import React from 'react';
 import PT from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Voter from './Voter';
 
 class UserArticles extends React.Component {
   render() {
     return (
       <section className="userArticles">
-        {this.props.articles.map((article, i) => {
+
+        {this.props.articles.message ? <Redirect to="/*" /> : this.props.articles.map((article, i) => {
           return (
             <section className="card" key={i}>
               <section className="card-content is-paddingless">
