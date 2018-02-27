@@ -8,8 +8,8 @@ const UserComments = (props) => (
       return (
         <Link to={`/articles/${comment.belongs_to}`}>
           <section className="card" key={i}>
-            <section className="card-content">
-              <section className="cardBody">
+            <section className="card-content" id="userCommentCards">
+              <section className="cardBody" id="userCardBody">
                 <h1><strong>{comment.commentArticle}</strong></h1>
                 <p className="is-size-7 "> {'<'}Nc/ {comment.commentTopic} >  {comment.votes} <i className="fa fa-arrow-up" aria-hidden="true"></i></p>
                 <br/>

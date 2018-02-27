@@ -15,6 +15,10 @@ img {
   color: transparent;
 }
 
+#homeButtonUser {
+  margin-left: 4vw;
+}
+
 #userPageHero {
   display: flex;
   justify-content: center;
@@ -48,18 +52,38 @@ img {
 }
 
 #userInfo {
-  margin-left: 1vw;
+  margin-left: 5vw;
   margin-right: 1vw;
+  max-width: 90%;
+}
+
+.userNameAndRep {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 #userButtons {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: nowrap;
   margin-top: 1vh;
   margin-bottom: 0vh;
   background-color: white;
   /* padding-top: 10vh; */
+}
+
+#userCommentCards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+#userCardBody {
+  max-width: 90%;
 }
 
 #articles {

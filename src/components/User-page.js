@@ -30,7 +30,7 @@ class UserPage extends React.Component {
           <section className="hero-head">
             <nav className="navbar">
               <section className="container" id="home">
-                <section className="navbar-brand">
+                <section className="navbar-brand" id="homeButtonUser">
                   <Link to='/'><a className='button is-size-5 has-text-danger'>
                     <i className="fa fa-home" aria-hidden="true"></i>
                   </a>
@@ -50,16 +50,18 @@ class UserPage extends React.Component {
           </section>
         </section>
         <section className="userBody" id="userBody">
-            <section className="container has-text-centered is-paddingless is-marginless" id="userInfo">
-                <h1 className="title has-text-white is-size-4 is-paddingless is-marginless">{user.username}</h1>
-                <h2 className="subtitle has-text-white is-size-6 is-paddingless is-marginless">{user.totalVotes} total reputation</h2>
-              <section className="buttons has-addons is-centered" id="userButtons">
-                <span className="button is-text has-text-black is-size-4" onClick={() => this.handleChangeArticles(this.state.toggle)} id="articles">Articles</span>
-                <span className="button is-text has-text-black is-size-4" onClick={() => this.handleChangeComments(this.state.toggle)} id="comments">Comments</span>
-              </section>
-              {this.state.toggle ? <UserArticles updateArticleVote={this.updateArticleVote} articles={this.state.userArticles}/>
-              : <UserComments comments={this.state.userComments}/>}
+          <section className="container is-paddingless" id="userInfo">
+            <section className="userNameAndRep">
+              <h1 className="title has-text-white is-size-4 is-paddingless is-marginless">{user.username}</h1>
+              <h2 className="subtitle has-text-white is-size-6 is-paddingless is-marginless">{user.totalVotes} total reputation</h2>
             </section>
+            <section className="buttons has-addons is-centered" id="userButtons">
+              <span className="button is-text has-text-black is-size-4" onClick={() => this.handleChangeArticles(this.state.toggle)} id="articles">Articles</span>
+              <span className="button is-text has-text-black is-size-4" onClick={() => this.handleChangeComments(this.state.toggle)} id="comments">Comments</span>
+            </section>
+            {this.state.toggle ? <UserArticles updateArticleVote={this.updateArticleVote} articles={this.state.userArticles} />
+              : <UserComments comments={this.state.userComments} />}
+          </section>
         </section>
       </section>
     )
@@ -98,7 +100,7 @@ class UserPage extends React.Component {
       .then((res) => {
         return res.json()
       })
-      .then((updatedArticle) => {  
+      .then((updatedArticle) => {
         const newArticles = this.state.userArticles.map((article) => {
           if (updatedArticle._id === article._id) {
             return Object.assign({}, article, {
@@ -111,14 +113,14 @@ class UserPage extends React.Component {
           userArticles: newArticles
         })
       })
-    }
+  }
 
   handleChangeArticles = (flag) => {
-    if (flag === false) this.setState({toggle: true})
+    if (flag === false) this.setState({ toggle: true })
   }
 
   handleChangeComments = (flag) => {
-    if (flag === true) this.setState({toggle: false})
+    if (flag === true) this.setState({ toggle: false })
   }
 
 }
