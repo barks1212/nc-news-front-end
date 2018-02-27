@@ -1,4 +1,5 @@
 import React from 'react';
+import PT from 'prop-types';
 
 const iconLookup = {
   'football': function() {
@@ -18,5 +19,9 @@ const ArticleIcon = (props) => (
   {props.topic && <i className={iconLookup[props.topic]()} id="topicIcon" aria-hidden="true"></i>}
   </section>
 )
+
+iconLookup.propTypes = {
+  topic: PT.string
+}
 
 export default ArticleIcon

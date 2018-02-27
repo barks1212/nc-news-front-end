@@ -13,6 +13,7 @@ class App extends React.Component {
           <BrowserRouter>
             <Switch>
               <Route exact path="/" render={() => <Home />} />
+              <Route exact path="/articles" render={() => <Home />} />
               <Route exact path="/topics/:topic/articles" render={(params) => <Home {...params} />} />
               <Route exact path="/topics/:topic" render={(params) => <Home {...params} />} />
               <Route exact path="/users/:username" render={(params) => <UserPage {...params} />} />

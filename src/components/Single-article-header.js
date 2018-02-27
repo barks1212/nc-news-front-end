@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import PT from 'prop-types';
 
 import Voter from './Voter';
 import ArticleIcon from './Article-icon';
@@ -42,6 +43,12 @@ class SingleArticleHeader extends React.Component {
       </section>
     )
   }
+}
+
+SingleArticleHeader.propTypes = {
+  comments: PT.array,
+  updateArticleVote: PT.func,
+  article: PT.object
 }
 
 export default SingleArticleHeader;
