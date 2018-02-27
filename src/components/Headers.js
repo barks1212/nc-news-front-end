@@ -16,7 +16,7 @@ const Headers = (props) => (
           <section className="container" id="headersContainer">
         <HeaderPicture showArticles={props.showArticles} topic={props.topic}/>
         {props.showArticles ?
-            <section className="homeDetails is-overlay">
+            <section className="homeDetails is-mobile is-overlay">
               <HomeTopicFlare topic={props.topic ? props.topic : null} />
               <TopicsNav topic={props.topic ? props.topic : null} />
             </section>

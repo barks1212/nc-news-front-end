@@ -18,13 +18,13 @@ const picLookup = {
 
 const HeaderPicture = (props) => (
   <section className="pictureMain">
-  {props.showArticles ? <section className="container is-paddingless is-marginless" id="headerPictureContainer">
+  {props.showArticles ? <section className="container is-mobile is-paddingless is-marginless" id="headerPictureContainer">
 
    {props.topic != null ? <img src={picLookup[props.topic]()} id="headerPic" alt=''/> : <img src={'/pictures/nc1.jpg_large'} id="headerPic" alt=''/>}
    </section>
 
-  :<section className="container is-paddingless is-marginless" id="headerPictureContainer">
-   <img src="https://www.advisorkhoj.com/resources/images/articles/Top-5-Mutual-Fund/Top-5-Mutual-Fund.jpg" alt='' /> 
+  :<section className="container is-mobile is-paddingless is-marginless" id="headerPictureContainer">
+   <img id="headerPic" src="http://www.gsfdcy.com/data/img/32/1486476-fireworks-wallpaper.jpg" alt='' /> 
   </section>}
    
   </section>
